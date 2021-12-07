@@ -1,8 +1,5 @@
 package com.programming_distributed_systems_project;
 
-import com.Riddles_in_Dark.Response;
-import com.Riddles_in_Dark.Interface;
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;

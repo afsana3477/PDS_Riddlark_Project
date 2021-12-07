@@ -1,4 +1,4 @@
-package com.Riddles_in_Dark;
+package com.programming_distributed_systems_project;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -14,6 +14,8 @@ public class Server_Threads {
     private static Socket connection; //Create Socket
     private static ServerSocket serverSocket; //Create a Server Socket
     private static ExecutorService Serverthreads = Executors.newFixedThreadPool(15); //Create threads
+
+
     public static void main(String[] args) throws IOException {
         serverSocket = new ServerSocket(1246); //Start a new server socket on port 1246
         while (true) {

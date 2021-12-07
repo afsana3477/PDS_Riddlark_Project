@@ -4,20 +4,20 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
-public class Client_Output implements Runnable {
+public class ClientOutputThread implements Runnable {
     private Socket connection;
     private ObjectOutputStream outputStream;
-    private Call call;
+    private com.programming_distributed_systems_project.Request request;
 
-    public Client_Output(Socket connection, Call call) {
+    public ClientOutputThread(Socket connection, com.programming_distributed_systems_project.Request request) {
         this.connection = connection;
-        this.call = call;
+        this.request = request;
     }
 
     @Override
     public void run() {
         try {
-            sendRequest(call);
+            sendRequest(request);
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
@@ -25,19 +25,20 @@ public class Client_Output implements Runnable {
     }
 
     /**
-     * Handle all call made by client to server
-     * @param call
+     * Handle all request made by client to server
+     * @param request
      */
-    public void sendRequest(Call call) {
+    public void sendRequest(com.programming_distributed_systems_project.Request request) {
         try {
-            System.out.println("Connecting to server");
+            System.out.println(">>>>>>>>>>>>>>>>>>");
             outputStream = new ObjectOutputStream(connection.getOutputStream());
-            outputStream.writeObject(call);
+            outputStream.writeObject(request);
             outputStream.flush();
         } catch (IOException e) {
-            System.out.println("Cannot create a connection to the server...");
+            System.out.println("Couldn't connect to the server...");
             e.printStackTrace();
         }
     }
 
 }
+

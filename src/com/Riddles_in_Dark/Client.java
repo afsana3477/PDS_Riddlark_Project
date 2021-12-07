@@ -1,4 +1,4 @@
-package com.Riddles_in_Dark;
+package com.programming_distributed_systems_project;
 
 import java.io.*;
 import java.net.Socket;
@@ -96,4 +96,3 @@ public class Client {
         }
     }
 }
-
